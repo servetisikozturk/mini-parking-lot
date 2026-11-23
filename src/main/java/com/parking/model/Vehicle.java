@@ -6,6 +6,9 @@ package com.parking.model;
  */
 public abstract class Vehicle implements Comparable<Vehicle> {
 
+    // Base unit rate per square meter per hour (in TL / m² / hour)
+    public static final double BASE_RATE_PER_SQM = 2.0;
+
     // Encapsulated private fields
     private String plateNumber;
     private int hoursParked;
@@ -21,6 +24,9 @@ public abstract class Vehicle implements Comparable<Vehicle> {
         this.plateNumber = plateNumber.trim().toUpperCase();
         this.hoursParked = hoursParked;
     }
+
+    // Abstract method returning the area (in m²) occupied by the vehicle
+    public abstract int getOccupiedArea();
 
     // Abstract method: overridden by subclasses for runtime polymorphism
     public abstract double calculateFee();
@@ -54,6 +60,6 @@ public abstract class Vehicle implements Comparable<Vehicle> {
 
     @Override
     public String toString() {
-        return "[" + getType() + "] Plate: " + plateNumber + " | Hours: " + hoursParked + "h | Fee: " + calculateFee() + " TL";
+        return "[" + getType() + "] Plate: " + plateNumber + " | Area: " + getOccupiedArea() + " m² | Hours: " + hoursParked + "h | Fee: " + calculateFee() + " TL";
     }
 }

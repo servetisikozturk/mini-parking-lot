@@ -6,17 +6,22 @@ package com.parking.model;
  */
 public class Car extends Vehicle {
 
-    // Hourly parking rate for cars (20.0 TL / hour)
-    private static final double HOURLY_RATE = 20.0;
+    // Car occupies 10 m² of parking area
+    private static final int OCCUPIED_AREA = 10;
 
     public Car(String plateNumber, int hoursParked) {
         super(plateNumber, hoursParked);
     }
 
-    // Overridden method implementing fee calculation for cars
+    @Override
+    public int getOccupiedArea() {
+        return OCCUPIED_AREA;
+    }
+
+    // Hourly fee based on occupied area: hours * area (10 m²) * base rate (2.0 TL/m²/h) = 20.0 TL/h
     @Override
     public double calculateFee() {
-        return getHoursParked() * HOURLY_RATE;
+        return getHoursParked() * getOccupiedArea() * BASE_RATE_PER_SQM;
     }
 
     @Override
