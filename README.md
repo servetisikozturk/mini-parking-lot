@@ -100,6 +100,12 @@ mvn test
 mvn exec:java
 ```
 
+### Package into Executable JAR
+```bash
+mvn package
+java -jar target/mini-parking-lot-1.0.0.jar
+```
+
 ## Known Limitations
 - **Console-Only Interface:** The application currently operates via a command-line interface (CLI); a graphical user interface (GUI) is not yet implemented.
 - **File-Based Storage:** Vehicle records are persisted in a local flat text file (`data/vehicles.txt`) rather than a relational database, which limits concurrent multi-user access.
@@ -107,8 +113,3 @@ mvn exec:java
 
 ## Author
 - **Servet Isik Ozturk** (Neptun ID: `ERPV2D`) — BSc Computer Science Engineering, University of Pécs (MIK)
-### Package into Executable JAR
-```bash
-mvn package
-java -jar target/mini-parking-lot-1.0.0.jar
-```
