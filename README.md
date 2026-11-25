@@ -100,6 +100,13 @@ mvn test
 mvn exec:java
 ```
 
+## Known Limitations
+- **Console-Only Interface:** The application currently operates via a command-line interface (CLI); a graphical user interface (GUI) is not yet implemented.
+- **File-Based Storage:** Vehicle records are persisted in a local flat text file (`data/vehicles.txt`) rather than a relational database, which limits concurrent multi-user access.
+- **Static Pricing & Capacity:** Hourly rates (`2.0 TL/m²/h`) and maximum lot area (`100 m²`) are defined as compile-time constants rather than dynamic configuration settings.
+
+## Author
+- **Servet Isik Ozturk** (Neptun ID: `ERPV2D`) — BSc Computer Science Engineering, University of Pécs (MIK)
 ### Package into Executable JAR
 ```bash
 mvn package
